@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CinemachineTarget
   - Goal
+  - agent
   layers:
   - Default
   - TransparentFX
