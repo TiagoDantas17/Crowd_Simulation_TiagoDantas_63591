@@ -1,20 +1,37 @@
+
+using UnityEngine.AI;
+using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class AIcontroller : MonoBehaviour
+public class AIcontrol : MonoBehaviour
 {
-    public GameObject goal;
+
+    GameObject[] goalLocations;
     NavMeshAgent agent;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    Animator anim;
+
+    // Use this for initialization
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
-        agent.SetDestination(goal.transform.position);
+
+        agent = this.GetComponent<NavMeshAgent>();
+        goalLocations = GameObject.FindGameObjectsWithTag("Goal");
+        int i = Random.Range(0, goalLocations.Length);
+        agent.SetDestination(goalLocations[i].transform.position);
+        anim = this.GetComponent<Animator>();
+        anim.SetTrigger("isWalking");
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (agent.remainingDistance < 1)
+        {
+            int i = Random.Range(0, goalLocations.Length);
+            agent.SetDestination(goalLocations[i].transform.position);
+        }
     }
 }
