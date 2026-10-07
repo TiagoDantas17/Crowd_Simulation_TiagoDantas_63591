@@ -285,8 +285,8 @@ MonoBehaviour:
   goalPos: {x: 0, y: 0, z: 0}
   minSpeed: 1
   maxSpeed: 5
-  neighbourDistance: 3
-  rotationSpeed: 4
+  neighbourDistance: 10
+  rotationSpeed: 2.5
 --- !u!65 &1079601941
 BoxCollider:
   m_ObjectHideFlags: 0
